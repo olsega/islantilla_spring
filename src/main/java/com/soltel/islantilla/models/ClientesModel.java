@@ -2,7 +2,9 @@ package com.soltel.islantilla.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.Set;
 
 @Entity
 @Table(name="clientes")
@@ -20,6 +22,11 @@ public class ClientesModel {
 	
 	@Column
 	private boolean sexo;
+
+	// Hay que poner en la relación de tablas. OneToMany en el 1 y ManyToOne en el muchos
+	// Aquí ponemos el OneToMany
+	@OneToMany (mappedBy = "nif")
+	private Set<ReservasModel> reservas;
 	
 	// Setter y Getter
 
